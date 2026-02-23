@@ -162,7 +162,7 @@ body{
   font-size:13px;
 }
 
-/* ================= EXACT WEB PRINT ================= */
+/* ================= PERFECT ONE-PAGE PRINT ================= */
 @media print {
 
   @page {
@@ -171,25 +171,27 @@ body{
   }
 
   html, body {
-    width: 1100px;
-    height: auto;
+    margin: 0;
+    padding: 0;
+    height: 100%;
   }
 
   body {
-    margin: 0;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
   .page {
     width: 1100px;
-    margin: 0 auto;
-    padding: 20px 50px 40px;
+    transform: scale(0.85);
+    transform-origin: top center;
+    page-break-inside: avoid;
   }
 
-  /* Prevent browser auto scaling */
-  * {
-    transform: none !important;
+  .hero,
+  .features,
+  .contact {
+    page-break-inside: avoid;
   }
 
 }
