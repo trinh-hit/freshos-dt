@@ -162,6 +162,62 @@ body{
   font-size:13px;
 }
 
+/* ================= CLEAN PRINT ================= */
+@media print {
+
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+
+  body{
+    background:white !important;
+  }
+
+  .page{
+    width:100% !important;
+    padding:0 !important;
+  }
+
+  /* remove shadows & radius */
+  *{
+    box-shadow:none !important;
+  }
+
+  .feature,
+  .contact{
+    background:white !important;
+    border-radius:0 !important;
+  }
+
+  .hero-images img,
+  .feature img{
+    border-radius:0 !important;
+  }
+
+  /* tighten spacing */
+  .nav{ margin-bottom:20px; }
+  .hero{ margin-bottom:25px; }
+  .section{ margin-bottom:10px; }
+  .features{ gap:15px; margin-bottom:20px; }
+
+  .hero-text h1{ font-size:26px; }
+  .hero-text p{ font-size:13px; }
+
+  .feature h3{ font-size:13px; }
+  .feature p{ font-size:11px; }
+
+  .contact{ padding:15px; font-size:11px; }
+
+  /* avoid page breaks inside blocks */
+  .hero,
+  .features,
+  .feature{
+    break-inside: avoid;
+  }
+
+}
+
 </style>
 </head>
 
