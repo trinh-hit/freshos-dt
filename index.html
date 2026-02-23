@@ -22,7 +22,7 @@ body{
   color:var(--dark);
 }
 
-/* Navbar */
+/* NAV */
 .nav{
   display:flex;
   justify-content:space-between;
@@ -34,9 +34,7 @@ body{
   top:0;
 }
 
-.nav img{
-  height:42px;
-}
+.nav img{ height:42px; }
 
 .nav a{
   text-decoration:none;
@@ -45,7 +43,7 @@ body{
   font-weight:500;
 }
 
-/* Hero Section */
+/* HERO */
 .hero{
   display:flex;
   align-items:center;
@@ -57,7 +55,7 @@ body{
 
 .hero-text{
   flex:1;
-  min-width:300px;
+  min-width:320px;
 }
 
 .hero-text h1{
@@ -66,9 +64,7 @@ body{
   margin-bottom:20px;
 }
 
-.hero-text h1 span{
-  color:var(--primary);
-}
+.hero-text span{ color:var(--primary); }
 
 .hero-text p{
   font-size:18px;
@@ -85,79 +81,100 @@ body{
   font-size:16px;
   cursor:pointer;
   box-shadow:0 8px 20px rgba(31,122,76,0.25);
-  transition:0.3s;
 }
 
-.hero-text button:hover{
-  transform:translateY(-2px);
-}
-
-.hero-img{
+.hero-images{
   flex:1;
-  text-align:center;
-  min-width:300px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-.hero-img img{
-  width:100%;
-  max-width:500px;
+.hero-images img{
+  width:240px;
   border-radius:20px;
   box-shadow:0 20px 50px rgba(0,0,0,0.15);
 }
 
-/* Features */
-.features{
+/* SECTION */
+.section{
   padding:80px 8%;
   text-align:center;
 }
 
-.features h2{
+.section h2{
   font-size:36px;
-  margin-bottom:50px;
+  margin-bottom:20px;
 }
 
-.cards{
+.section p{
+  max-width:800px;
+  margin:0 auto 40px;
+  color:#555;
+}
+
+/* FEATURES */
+.features-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
 
-.card{
+.feature{
   background:white;
+  padding:25px;
   border-radius:20px;
-  padding:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.05);
-  transition:0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card img{
+.feature img{
   width:100%;
   border-radius:14px;
   margin-bottom:20px;
 }
 
-.card h3{
-  font-size:20px;
-  margin-bottom:10px;
+.feature h3{
   color:var(--primary);
+  margin-bottom:10px;
 }
 
-.card p{
+.feature p{
   color:#555;
   font-size:15px;
 }
 
-/* Footer */
-.footer{
-  padding:40px;
-  text-align:center;
+/* CONTACT INFO */
+.contact-info{
   background:var(--primary);
   color:white;
-  margin-top:60px;
+  padding:60px 8%;
+  text-align:center;
+}
+
+.contact-info h2{
+  margin-bottom:20px;
+}
+
+.contact-info p{
+  margin-bottom:8px;
+  font-size:16px;
+}
+
+/* FOOTER */
+.footer{
+  padding:20px;
+  text-align:center;
+  background:#111;
+  color:#aaa;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -166,11 +183,10 @@ body{
 
 <!-- NAV -->
 <div class="nav">
-  <img src="images/logo.jpeg" alt="FreshOS Logo">
+  <img src="logo.png" alt="FreshOS Logo">
   <div>
-    <a href="#">How it Works</a>
-    <a href="#">Features</a>
-    <a href="#">Contact</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
   </div>
 </div>
 
@@ -178,41 +194,54 @@ body{
 <section class="hero">
   <div class="hero-text">
     <h1>Adaptive <span>Food Intelligence</span></h1>
-    <p>FreshOS senses, decides, and delivers.  
-    Eat healthy without daily decision stress.</p>
-    <button>Get Started</button>
+    <p>FreshOS reduces daily decision stress by sensing, deciding,
+    and delivering what you truly need.</p>
+    <button>Explore FreshOS</button>
   </div>
 
-  <div class="hero-img">
-    <img src="images/main.png" alt="FreshOS Main Visual">
+  <div class="hero-images">
+    <img src="main-1.png" alt="Main Visual 1">
+    <img src="main-2.png" alt="Main Visual 2">
   </div>
 </section>
 
 <!-- FEATURES -->
-<section class="features">
-  <h2>How FreshOS Works</h2>
+<section class="section" id="features">
+  <h2>Core Experience</h2>
 
-  <div class="cards">
+  <div class="features-grid">
 
-    <div class="card">
-      <img src="images/image1.png" alt="Sensor Based Fridge">
-      <h3>Sensor-Based Fridge</h3>
-      <p>Real-time inventory detection and freshness tracking.</p>
+    <div class="feature">
+      <img src="image1.png" alt="Smart Fridge">
+      <h3>Smart Sensing</h3>
+      <p>You don’t have to remember what’s in your fridge.
+      FreshOS tracks freshness and inventory in real time for you.</p>
     </div>
 
-    <div class="card">
-      <img src="images/image2.png" alt="Real Time Ordering">
-      <h3>Real-Time Ingredient Ordering</h3>
-      <p>Missing ingredients delivered instantly to your home.</p>
+    <div class="feature">
+      <img src="image2.png" alt="Real-Time Ordering">
+      <h3>Real-Time Ingredient Delivery</h3>
+      <p>When something is missing, it’s automatically delivered.
+      No extra trips. No last-minute stress.</p>
     </div>
 
-    <div class="card">
-      <img src="images/image3.png" alt="Effortless Cooking">
+    <div class="feature">
+      <img src="image3.png" alt="Effortless Cooking">
       <h3>Effortless Healthy Cooking</h3>
-      <p>Pre-portioned sets that reduce prep and save time.</p>
+      <p>Pre-portioned ingredient sets let you cook confidently,
+      even when time is limited.</p>
     </div>
 
   </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-info" id="contact">
+  <h2>Contact</h2>
+  <p><strong>Team FreshOS</strong></p>
+  <p>Hitotsubashi ICS</p>
+  <p>2-1-2 Hitotsubashi, Chiyoda-ku, Tokyo 101-8439, Japan</p>
+  <p>7th Floor</p>
 </section>
 
 <!-- FOOTER -->
